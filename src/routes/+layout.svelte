@@ -26,17 +26,17 @@
 			<div class="col text-end">
 				<ul class="list-group">
 					<li class="list-item p-2">
-						<a href="https://www.facebook.com/thetailorsonline" target="_blank"
+						<a class="nav-link" href="https://www.facebook.com/thetailorsonline" target="_blank"
 							><i class="bi-facebook fs-5 text-success"></i></a
 						>
 					</li>
 					<li class="list-item p-2">
-						<a href="https://www.instagram.com/thetailorsonline/" target="_blank"
+						<a class="nav-link" href="https://www.instagram.com/thetailorsonline/" target="_blank"
 							><i class="bi-instagram fs-5 text-warning"></i></a
 						>
 					</li>
 					<li class="list-item p-2">
-						<a href="https://twitter.com/tailorsonline" target="_blank"
+						<a class="nav-link" href="https://twitter.com/tailorsonline" target="_blank"
 							><i class="bi-twitter fs-5 text-info"></i></a
 						>
 					</li>
@@ -80,7 +80,7 @@
 					<a class="nav-link" href="#contact">Contact Us</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#about-us">About Us</a>
+					<a class="nav-link" href="#about">About Us</a>
 				</li>
 			</ul>
 		</div>
@@ -93,7 +93,7 @@
 	<!--<div class="action-lage"></div>-->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-4" id="about">
 				<h5 class="text-white">About Us</h5>
 				<p class="mt-2 text-secondary fw-semibold">
 					We are an online platform that helps people connect to numerous fashion designers/tailors
@@ -222,7 +222,7 @@
 		color: #000; /* Ensure the text color is readable */
 	}
 	.nav-link:hover {
-		color: #fff; /* Optional: Change text color on hover */
+		color: #369c1c; /* Optional: Change text color on hover */
 	}
 	.navbar-light .navbar-toggler-icon {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");

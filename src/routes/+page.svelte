@@ -346,7 +346,7 @@
 <!-- End off Brand section -->
 
 <!-- Contact Form Section -->
-<section class="d-flex align-items-center">
+<section class="d-flex align-items-center" id="contact">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 mt-3 text-center">
