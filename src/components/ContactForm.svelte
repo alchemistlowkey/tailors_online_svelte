@@ -1,4 +1,30 @@
-<script></script>
+<script>
+	let name = '';
+	let email = '';
+	let comments = '';
+	let successMessage = '';
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		const response = await fetch('http://localhost:5000/submit-form', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ name, email, comments })
+		});
+
+		if (response.ok) {
+			successMessage = 'Message sent successfully';
+			name = '';
+			email = '';
+			comments = '';
+		} else {
+			successMessage = 'Error sending comments';
+		}
+	};
+</script>
 
 <section class="d-flex align-items-center text-balance" id="contact">
 	<div class="container">
@@ -10,7 +36,7 @@
 					run live demos for those wishing to see how it's done and what it is to use our services.
 				</p>
 				<div id="message"></div>
-				<form method="post" action="" name="cform" id="cform">
+				<form method="post" action="" name="cform" id="cform" on:submit={handleSubmit}>
 					<div class="mb-3">
 						<input
 							name="name"
@@ -18,6 +44,7 @@
 							type="text"
 							class="form-control custom-input"
 							placeholder="Your name..."
+							bind:value={name}
 							required
 						/>
 					</div>
@@ -28,6 +55,7 @@
 							type="email"
 							class="form-control custom-input"
 							placeholder="Email Address..."
+							bind:value={email}
 							required
 						/>
 					</div>
@@ -37,6 +65,7 @@
 							id="comments"
 							class="form-control custom-input"
 							placeholder="Message Details..."
+							bind:value={comments}
 							rows="5"
 							required
 						></textarea>
@@ -45,6 +74,9 @@
 						<button type="submit" id="submit" name="send" class="btn btn-primary">Send</button>
 					</div>
 				</form>
+				{#if successMessage}
+					<p>{successMessage}</p>
+				{/if}
 			</div>
 		</div>
 	</div>

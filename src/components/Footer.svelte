@@ -1,4 +1,26 @@
-<script></script>
+<script>
+	let email = '';
+	let successMessage = '';
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		const response = await fetch('http://localhost:5000/subscribe-newsletter', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ email })
+		});
+
+		if (response.ok) {
+			successMessage = 'Succeccfully subscribed to newsletter';
+			email = '';
+		} else {
+			successMessage = 'Error subscribing to newsletter';
+		}
+	};
+</script>
 
 <footer class="footer footer-bg pt-5 text-green-600 fw-bolder text-balance">
 	<!--<div class="action-lage"></div>-->
@@ -39,18 +61,22 @@
 			<div class="col-md-4">
 				<div class="widget_item widget_newsletter sm-m-top-50">
 					<h5 class="text-red-700 fw-bold">Newsletter</h5>
-					<form class="form-inline mt-3" method="post" action="">
+					<form class="form-inline mt-3" method="post" on:submit={handleSubmit}>
 						<div class="form-group d-flex align-items-center">
 							<input
 								type="email"
 								class="form-control border-bottom rounded text-white bg-transparent"
 								placeholder="Enter your Email"
+								bind:value={email}
 							/>
 							<button type="submit" class="btn bg-green-600 text-center rounded">
 								<i class="bi bi-arrow-right"></i>
 							</button>
 						</div>
 					</form>
+					{#if successMessage}
+						<p>{successMessage}</p>
+					{/if}
 
 					<ul class="list-inline m-top-20">
 						<li>
